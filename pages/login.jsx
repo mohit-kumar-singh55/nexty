@@ -7,7 +7,9 @@ import logo from "../public/assets/logowhite.png";
 
 function Login() {
     return (
-        <div>Login</div>
+        <div>
+            <video src={shareVideo} autoPlay muted loop />
+        </div>
     )
 }
 

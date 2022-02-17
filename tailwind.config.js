@@ -1,10 +1,9 @@
 module.exports = {
-  purge: [
+  content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
     "./containers/**/*.{js,ts,jsx,tsx}",
   ],
-  darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
       margin: {
@@ -88,10 +87,6 @@ module.exports = {
       'zoom-in': 'zoom-in',
       pointer: 'pointer',
     },
-  },
-  variants: {
-    // backgroundColor: ['active'],
-    extend: {},
   },
   plugins: [],
 }

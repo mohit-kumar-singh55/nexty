@@ -19,3 +19,7 @@ html {
 body {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+
+.custom-bg {
+  background-image: linear-gradient(to right, #fc5c7d, #6a82fb);
+}

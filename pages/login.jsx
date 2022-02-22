@@ -6,6 +6,10 @@ import logo from "../public/assets/logowhite.png";
 import Image from 'next/image';
 
 function Login() {
+    const responseGoogle = (response) => {
+
+    }
+
     return (
         <div className='flex justify-start items-center flex-col h-screen'>
             <div className="relative w-full h-full">
@@ -18,10 +22,17 @@ function Login() {
                         <GoogleLogin
                             clientId=''
                             render={(renderProps) => (
-                                <button type='button' className='bg-mainColor flex justify-center items-center p-3 rounded-lg cursor-pointer outline-none'>
+                                <button
+                                    type='button'
+                                    className='bg-mainColor flex justify-center items-center p-3 rounded-lg cursor-pointer outline-none'
+                                    onClick={renderProps.onClick}
+                                    disabled={renderProps.disabled}>
                                     <FcGoogle className="mr-4" />SignIn with Google
                                 </button>
                             )}
+                            onSuccess={responseGoogle}
+                            onFailure={responseGoogle}
+                            cookiePolicy="single_host_origin"
                         />
                     </div>
                 </div>

@@ -1,13 +1,22 @@
 import React from 'react';
 import GoogleLogin from 'react-google-login';
 import { useRouter } from "next/router";
-import { FcGoogle } from "react-icons";
+// import FcGoogle from "react-icons";
 import logo from "../public/assets/logowhite.png";
 import Image from 'next/image';
 
 function Login() {
     const responseGoogle = (response) => {
+        localStorage.setItem('user', JSON.stringify(response.profileObj));
 
+        const { name, googleId, imageUrl } = response.profileObj;
+
+        const doc = {
+            _id: googleId,
+            _type: 'user',
+            userName: name,
+            image: imageUrl
+        }
     }
 
     return (
@@ -20,16 +29,17 @@ function Login() {
                     </div>
                     <div className="shadow-2xl">
                         <GoogleLogin
-                            clientId=''
-                            render={(renderProps) => (
-                                <button
-                                    type='button'
-                                    className='bg-mainColor flex justify-center items-center p-3 rounded-lg cursor-pointer outline-none'
-                                    onClick={renderProps.onClick}
-                                    disabled={renderProps.disabled}>
-                                    <FcGoogle className="mr-4" />SignIn with Google
-                                </button>
-                            )}
+                            clientId='211652113887-ak98aojvmtqsk2hf4gr878pdr1rpe06k.apps.googleusercontent.com'
+                            // render={(renderProps) => (
+                            //     <button
+                            //         type='button'
+                            //         className='bg-mainColor flex justify-center items-center p-3 rounded-lg cursor-pointer outline-none'
+                            //         onClick={renderProps.onClick}
+                            //         disabled={renderProps.disabled}>
+                            //         <FcGoogle className="mr-4" />Sign in with Google
+                            //     </button>
+                            // )}
+                            className='bg-mainColor flex justify-center items-center p-3 rounded-lg cursor-pointer outline-none'
                             onSuccess={responseGoogle}
                             onFailure={responseGoogle}
                             cookiePolicy="single_host_origin"

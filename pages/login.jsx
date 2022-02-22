@@ -21,6 +21,7 @@ function Login() {
 
     return (
         <div className='flex justify-start items-center flex-col h-screen'>
+            {console.log(process.env.REACT_GOOGLE_CLIENT_ID)}
             <div className="relative w-full h-full">
                 <div className="w-full h-full custom-bg" />
                 <div className="absolute flex flex-col justify-center items-center top-0 left-0 right-0 bottom-0">
@@ -29,7 +30,7 @@ function Login() {
                     </div>
                     <div className="shadow-2xl">
                         <GoogleLogin
-                            clientId='211652113887-ak98aojvmtqsk2hf4gr878pdr1rpe06k.apps.googleusercontent.com'
+                            clientId={process.env.REACT_GOOGLE_CLIENT_ID}
                             // render={(renderProps) => (
                             //     <button
                             //         type='button'

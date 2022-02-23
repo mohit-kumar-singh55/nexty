@@ -38,15 +38,15 @@ function Login() {
                     <div className="shadow-2xl">
                         <GoogleLogin
                             clientId={process.env.REACT_GOOGLE_CLIENT_ID}
-                            render={(renderProps) => (
-                                <button
-                                    type='button'
-                                    className='bg-mainColor flex justify-center items-center p-3 rounded-lg cursor-pointer outline-none'
-                                    onClick={renderProps.onClick}
-                                    disabled={renderProps.disabled}>
-                                    Sign in with Google
-                                </button>
-                            )}
+                            // render={(renderProps) => (
+                            //     <button
+                            //         type='button'
+                            //         className='bg-mainColor flex justify-center items-center p-3 rounded-lg cursor-pointer outline-none'
+                            //         onClick={renderProps.onClick}
+                            //         disabled={renderProps.disabled}>
+                            //         Sign in with Google
+                            //     </button>
+                            // )}
                             onSuccess={responseGoogle}
                             onFailure={responseGoogle}
                             cookiePolicy="single_host_origin"

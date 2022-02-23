@@ -14,6 +14,11 @@ function HomeComp() {
 
     const userInfo = localStorage.getItem('user') !== undefined ? JSON.parse(localStorage.getItem('user')) : localStorage.clear;
 
+    useEffect(() => {
+
+    }, [])
+
+
     return (
         <div className='flex bg-gray-50 md:flex-row flex-col h-screen transition-height duration-75 ease-out'>
             <div className="hidden flex-initial md:flex h-screen">

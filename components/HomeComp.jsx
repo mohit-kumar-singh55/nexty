@@ -4,18 +4,23 @@ import { AiFillCloseCircle } from "react-icons/ai";
 import SideBar from './SideBar';
 import UserProfile from './UserProfile';
 import { client } from "../client";
-
 import logo from "../public/assets/logo.png";
 import Image from 'next/image';
 import Link from 'next/link';
+import { userQuery } from '../utils/data';
 
 function HomeComp() {
     const [toggleSibeBar, setToggleSibeBar] = useState(false);
+    const [user, setUser] = useState(null);
 
     const userInfo = localStorage.getItem('user') !== undefined ? JSON.parse(localStorage.getItem('user')) : localStorage.clear;
 
     useEffect(() => {
+        const query = userQuery(userInfo?.googleId);
 
+        client.fetch(query).then((data) => {
+            setUser(data[0]);
+        })
     }, [])
 
 
@@ -29,7 +34,9 @@ function HomeComp() {
                 <Link href='/' passHref>
                     <Image src={logo} alt="logo" width="150px" height="50px" />
                 </Link>
-                <Link href={`user-profile/${user?._id}`} passHref></Link>
+                <Link href={`user-profile/${user?._id}`} passHref>
+                    <Image src={user?.image} alt="logo" />
+                </Link>
             </div>
         </div>
     )
